@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="broeser2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-wi-DIs">
+                                <rect key="frame" x="10" y="30" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LjQ-4z-vbI"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                            </textField>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDu-4e-vZE">
+                                <rect key="frame" x="0.0" y="70" width="375" height="553"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-dZ-viZ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="←" id="5jy-my-VG2">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="DcZ-H2-kni"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="→" id="CSY-1B-9Me">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="qrP-lw-h7e"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JCr-Ex-RNf"/>
+                                    <barButtonItem style="plain" systemItem="refresh" id="BJQ-wH-nta">
+                                        <connections>
+                                            <action selector="reloadAction:" destination="BYZ-38-t0r" id="wnd-4v-EUI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="x1i-e8-4He">
+                                <rect key="frame" x="340" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x1i-e8-4He" firstAttribute="centerY" secondItem="SIU-wi-DIs" secondAttribute="centerY" id="7Ll-gE-Cli"/>
+                            <constraint firstItem="x1i-e8-4He" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="340" id="BAm-vp-PfU"/>
+                            <constraint firstItem="SIU-wi-DIs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JTU-Po-jsg"/>
+                            <constraint firstItem="5Ds-dZ-viZ" firstAttribute="trailing" secondItem="pDu-4e-vZE" secondAttribute="trailing" id="Kpb-Qr-JCB"/>
+                            <constraint firstItem="SIU-wi-DIs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LqT-YP-36g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Ds-dZ-viZ" secondAttribute="bottom" id="aZ7-1E-qZJ"/>
+                            <constraint firstItem="5Ds-dZ-viZ" firstAttribute="leading" secondItem="pDu-4e-vZE" secondAttribute="leading" id="d2L-ak-iYI"/>
+                            <constraint firstItem="pDu-4e-vZE" firstAttribute="top" secondItem="SIU-wi-DIs" secondAttribute="bottom" constant="10" id="euJ-qB-6G6"/>
+                            <constraint firstItem="5Ds-dZ-viZ" firstAttribute="top" secondItem="pDu-4e-vZE" secondAttribute="bottom" id="gkb-Xn-aLV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SIU-wi-DIs" secondAttribute="trailing" constant="10" id="hoX-WK-lfO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pDu-4e-vZE" secondAttribute="trailing" id="ryE-6a-nPT"/>
+                            <constraint firstItem="5Ds-dZ-viZ" firstAttribute="top" secondItem="pDu-4e-vZE" secondAttribute="bottom" id="vJU-Iz-nGx"/>
+                            <constraint firstItem="pDu-4e-vZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vWm-PK-ydP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="5jy-my-VG2" id="uVs-16-KMb"/>
+                        <outlet property="browserActivityIndicatorView" destination="x1i-e8-4He" id="yKs-eY-Mvi"/>
+                        <outlet property="browserWebView" destination="pDu-4e-vZE" id="jPd-6G-1Sw"/>
+                        <outlet property="forwardButton" destination="CSY-1B-9Me" id="gqs-VJ-wpR"/>
+                        <outlet property="reloadButton" destination="BJQ-wH-nta" id="5bV-i3-9Bk"/>
+                        <outlet property="urlTextField" destination="SIU-wi-DIs" id="Dsd-ty-nSG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
